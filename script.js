@@ -8,7 +8,7 @@
 
 // compare the two
 
-        function playRound(){
+       
 
             var humanScore=0
             var compScore=0
@@ -21,39 +21,49 @@
                 else {return "scissors"}
                 }
 
-            let compChoice = getCompChoice()
-            console.log(`the computer throws ${compChoice}`)
-
             function getHumanChoice(){
                 var choice = prompt("Rock, Paper, or Scissors?");
                 return choice;
                 }
 
-            let humanChoice = getHumanChoice();
-
-            console.log(`the human throws ${humanChoice}`)
-            
-            // logic for comparing the choices and keeping score
-                if (humanChoice === "rock" & compChoice === "scissors"){
+            function playround(){
+                let humanThrow = getHumanChoice()
+                console.log(`The human throws ${humanThrow}!`)
+                let compThrow = getCompChoice();
+                console.log(`The computer throws ${compThrow}`);
+                if (humanThrow === "rock" & compThrow === "scissors"){
                     console.log("Human wins this round!");
                     humanScore++}
-                else if(humanChoice === "paper" & compChoice === "rock"){
+                else if(humanThrow === "paper" & compThrow === "rock"){
                     console.log("Human wins this round!");
                     humanScore++}
-                else if(humanChoice === "scissors" & compChoice === "paper"){
+                else if(humanThrow === "scissors" & compThrow === "paper"){
                     console.log("Human wins this round")
                     humanScore++}
-                else if(humanChoice===compChoice)
+                else if(humanThrow===compThrow)
                     {console.log("Its a tie!");
                     ties++}
                 else
                     {console.log("Computer wins this round!")
                     compScore++;}
-            console.log(`The score is human ${humanScore}, computer ${compScore}, and ${ties} ties.`)
+                console.log(`The score is human ${humanScore}, computer ${compScore}, and ${ties} ties.`)}
 
-        }
 
-        playRound()
+function playGame(){
+    playround()
+    playround()
+    playround()
+    playround()
+    playround()
+    if (humanScore>compScore){alert("Human wins the set!")}
+    else if(compScore>humanScore){alert("Computer wins the set!")}
+    else{alert("Its a tie! Play again you coward!")}
+}
+
+playGame()
+        
+
+        
 // play a game
 // update the score
 // replay several times
